@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Dropdown from "../components/Dropdown/Dropdown.component";
 import SearchBar from "../components/SearchBar/SearchBar.component";
 
 const HomePage = () => {
@@ -30,12 +31,10 @@ const HomePage = () => {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <SearchBar handleChange={handleChange} />
-      {searchField && filteredCountry.map((fc) => (
-        <p>{fc.Country}</p>
-      ))}
-    </React.Fragment>
+      {searchField && <Dropdown filteredCountry={filteredCountry} />}
+    </div>
   );
 };
 

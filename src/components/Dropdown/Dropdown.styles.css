@@ -1,0 +1,19 @@
+p {
+  margin: 0 auto;
+  width: 550px;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 10px;
+}
+p:hover {
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+  border-radius: 15px;
+  border-bottom: none;
+}
+
+.dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+  width: 600px;
+  justify-content: center;
+margin: auto;
+}
