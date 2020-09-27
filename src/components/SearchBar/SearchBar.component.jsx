@@ -17,9 +17,9 @@ const SearchBar = ({
       if (opts[i].value === val) {
         // An item was selected from the list!
         // yourCallbackHere()
-        const fc = filteredCountry.find(country => country.Country === val)
-        history.push(`/country/${fc.Slug}`)
-    
+        const fc = filteredCountry.find((country) => country.Country === val);
+        history.push(`/country/${fc.Slug}`);
+
         break;
       }
     }
@@ -28,6 +28,7 @@ const SearchBar = ({
     <div>
       <div className="bar">
         <input
+          name="countries"
           className="searchbar"
           type="text"
           title="Search"
@@ -46,6 +47,7 @@ const SearchBar = ({
           ></i>
         )}
       </div>
+
       <div className="dropdown">
         <datalist id="opts" className="ice-cream">
           {filteredCountry.map((fc) => (

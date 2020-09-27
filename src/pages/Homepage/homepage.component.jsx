@@ -43,6 +43,7 @@ const HomePage = ({ match }) => {
         <SearchBar
           handleChange={handleChange}
           filteredCountry={filteredCountry}
+          loading={loading}
         />
       </div>
     </div>
