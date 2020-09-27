@@ -5,7 +5,7 @@ const Dropdown = ({ filteredCountry }) => {
   return (
     <div className="dropdown">
       {filteredCountry.map((fc) => (
-        <p>{fc.Country}</p>
+        <p key={fc.Country}>{fc.Country}</p>
       ))}
     </div>
   );

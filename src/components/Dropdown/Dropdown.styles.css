@@ -9,6 +9,9 @@ p:hover {
   border-radius: 15px;
   border-bottom: none;
 }
+p:active {
+    background-color: yellow;
+  }
 
 .dropdown {
   max-height: 200px;
