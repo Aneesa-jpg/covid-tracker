@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Dropdown from "../components/Dropdown/Dropdown.component";
-import SearchBar from "../components/SearchBar/SearchBar.component";
+import { withRouter } from "react-router-dom";
+
+import SearchBar from "../../components/SearchBar/SearchBar.component";
 import "./styles.css";
-const HomePage = () => {
+const HomePage = ({ match }) => {
   const [searchField, setSearchField] = useState("");
   const [countries, setCountries] = useState([]);
   const [filteredCountry, setFilteredCountry] = useState([]);
@@ -39,19 +40,13 @@ const HomePage = () => {
   return (
     <div>
       <div className="search">
-        <SearchBar handleChange={handleChange} />
-        {loading && (
-          <i
-            class="fa fa-refresh fa-spin"
-            aria-hidden="true"
-            style={{ color: "black", padding: "10px" }}
-          ></i>
-        )}
+        <SearchBar
+          handleChange={handleChange}
+          filteredCountry={filteredCountry}
+        />
       </div>
-
-      {searchField && <Dropdown filteredCountry={filteredCountry} />}
     </div>
   );
 };
 
-export default HomePage;
+export default withRouter(HomePage);

@@ -1,14 +1,25 @@
 import React from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import "./Dropdown.styles.css";
 
-const Dropdown = ({ filteredCountry }) => {
+const Dropdown = ({ match, filteredCountry }) => {
+  const history = useHistory();
+  console.log(match);
+
   return (
     <div className="dropdown">
-      {filteredCountry.map((fc) => (
-        <p key={fc.Country}>{fc.Country}</p>
-      ))}
+      <datalist id="opts" className='ice-cream'>
+        {filteredCountry.map((fc) => (
+          <option
+            key={fc.Country}
+            onClick={() => history.push(`${match.url}country/${fc.Slug}`)}
+          >
+            {fc.Country}
+          </option>
+        ))}
+      </datalist>
     </div>
   );
 };
 
-export default Dropdown;
+export default withRouter(Dropdown);
