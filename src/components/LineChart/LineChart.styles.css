@@ -4,3 +4,10 @@
     margin-right: auto;
     width: 40%;
 }
+
+@media only screen and (max-width: 600px) {
+    .confirmed{
+        margin: 50px 0 0;
+        width: 100%
+    }
+    }
