@@ -1,6 +1,6 @@
 .bar {
-  margin: 250px auto 0;
-  width: 575px;
+  margin: 200px auto 0;
+  width: 450px;
   border-radius: 30px;
   border: 1px solid #dcdcdc;
 }
@@ -14,7 +14,10 @@
 .searchbar {
   height: 45px;
   border: none;
-  width: 500px;
+  width: 350px;
   font-size: 16px;
   outline: none;
+}
+datalist {
+  height: 250px;
 }

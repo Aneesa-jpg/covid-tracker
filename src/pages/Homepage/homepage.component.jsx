@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
+import Footer from "../../components/Footer/Footer.component";
 
 import SearchBar from "../../components/SearchBar/SearchBar.component";
 import "./styles.css";
@@ -46,6 +47,7 @@ const HomePage = ({ match }) => {
           loading={loading}
         />
       </div>
+      <Footer />
     </div>
   );
 };
