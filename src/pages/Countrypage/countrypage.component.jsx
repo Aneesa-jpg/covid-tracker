@@ -10,13 +10,31 @@ const CountryPage = () => {
   let { countryId } = useParams();
   const [data, setData] = useState([]);
   const [country, setCountry] = useState("");
+  const [summary, setSummary] = useState([]);
+
+  const getSummary1 = () => {
+    fetch("https://api.covid19api.com/summary")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log(result.Countries);
+          console.log(countryId);
+          const temp = result.Countries;
+          const a = temp.filter((country) => country.Slug === countryId);
+          console.log(a);
+          setSummary(a[0]);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
   useEffect(() => {
     fetch(`https://api.covid19api.com/total/dayone/country/${countryId}`)
       .then((res) => res.json())
       .then(
         (result) => {
           setData(result.reverse());
-          console.log(result);
 
           if (result.length === 0) {
             console.log("no data");
@@ -28,19 +46,20 @@ const CountryPage = () => {
           console.log(error);
         }
       );
+    getSummary1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const chartData = data.slice(0, 10);
   const label = chartData.map((date) =>
     new Date(date.Date).toLocaleDateString()
   );
-  console.log(label);
+
   const confirmed = chartData.map((confirmed) => confirmed.Confirmed);
-  console.log(confirmed);
+
   const active = chartData.map((confirmed) => confirmed.Active);
-  console.log(active);
+
   const dead = chartData.map((confirmed) => confirmed.Deaths);
-  console.log(dead);
+
   const recovered = chartData.map((confirmed) => confirmed.Recovered);
 
   return (
@@ -54,7 +73,29 @@ const CountryPage = () => {
           <b>{country} Status page</b>
         </header>
       </div>
+
+      <div className="card">
+        <div className="card-container">
+          <h4 style={{ color: "blue" }}>Total Confirmed:</h4>
+          <span style={{ color: "blue" }}>{summary.TotalConfirmed}</span>
+          <h4 style={{ color: "red" }}>Total Deaths:</h4>
+          <span style={{ color: "red" }}>{summary.TotalDeaths}</span>
+          <h4 style={{ color: "green" }}>Total Recovered:</h4>
+          <span style={{ color: "green" }}>{summary.TotalRecovered}</span>
+        </div>
+        <div className="card-container">
+          <h4 style={{ color: "blue" }}>New Confirmed:</h4>
+          <span style={{ color: "blue" }}>{summary.NewConfirmed}</span>
+          <h4 style={{ color: "red" }}>New Deaths:</h4>
+          <span style={{ color: "red" }}>{summary.NewDeaths}</span>
+          <h4 style={{ color: "green" }}>Total Recovered:</h4>
+          <span style={{ color: "green" }}>{summary.NewRecovered}</span>
+        </div>
+      </div>
+      
       {country ? <Table data={data} /> : <h1>No Data for {countryId} </h1>}
+
+
       <div className="charts">
         <LineChart
           label={label}

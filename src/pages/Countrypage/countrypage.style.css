@@ -11,4 +11,31 @@ header {
 .heading {
   display: inline;
 }
+.card-container {
+    margin: 50px auto 100px;
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-container:hover {
+    transform: scale(1.05);
+  }
+  h2 {
+    text-align: center;
+  }
+
+  .card {
+    margin: 0 auto;
+    bottom: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
 

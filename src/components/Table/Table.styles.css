@@ -18,7 +18,7 @@ tr:nth-child(even) {
   height: 300px;
   overflow-y: scroll;
   border-bottom: 1px solid #ddd;
-  margin: 50px 100px;
+  margin: 100px 100px;
 }
 
 th {
@@ -30,6 +30,6 @@ th {
 
 @media only screen and (max-width: 600px) {
   .scrollable {
-    margin: 0;
+    margin: 100px 0 0 ;
   }
 }
