@@ -20,7 +20,7 @@ const LineChart = ({ label, data, color, desc, id }) => {
   });
   return (
     <div className="confirmed">
-      <canvas id={id} width="250" height="250" />
+      <canvas id={id} />
     </div>
   );
 };
