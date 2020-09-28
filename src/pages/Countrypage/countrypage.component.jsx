@@ -88,7 +88,7 @@ const CountryPage = () => {
           <span style={{ color: "blue" }}>{summary.NewConfirmed}</span>
           <h4 style={{ color: "red" }}>New Deaths:</h4>
           <span style={{ color: "red" }}>{summary.NewDeaths}</span>
-          <h4 style={{ color: "green" }}>Total Recovered:</h4>
+          <h4 style={{ color: "green" }}>New Recovered:</h4>
           <span style={{ color: "green" }}>{summary.NewRecovered}</span>
         </div>
       </div>
