@@ -25,3 +25,19 @@ datalist {
   float: right;
   padding: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+  .bar{
+    margin: 10px auto 0;
+    width: 200px;
+    border-radius: 30px;
+  border: 1px solid #dcdcdc;
+  }
+  .searchbar {
+    height: 45px;
+    border: none;
+    width: 150px;
+    font-size: 16px;
+    outline: none;
+  }
+  }
