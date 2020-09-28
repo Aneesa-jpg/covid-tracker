@@ -30,6 +30,6 @@ th {
 
 @media only screen and (max-width: 600px) {
   .scrollable {
-    margin: 100px 0 0 ;
+    margin: 100px 0 0 0 ;
   }
 }
