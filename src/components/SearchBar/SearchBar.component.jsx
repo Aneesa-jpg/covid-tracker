@@ -5,16 +5,19 @@ import "./SearchBar.styles.css";
 const SearchBar = ({
   handleChange,
   handleKeyPress,
-  loading,
+  searchField,
   filteredCountry,
 }) => {
   const history = useHistory();
+  console.log(searchField.length);
 
   function onInput() {
     var val = document.getElementById("input").value;
     var opts = document.getElementById("opts").childNodes;
     for (var i = 0; i < opts.length; i++) {
       if (opts[i].value === val) {
+        // An item was selected from the list!
+        // yourCallbackHere()
         const fc = filteredCountry.find((country) => country.Country === val);
         history.push(`/country/${fc.Slug}`);
 
@@ -37,7 +40,7 @@ const SearchBar = ({
           onInput={onInput}
           id="input"
         />
-        {loading && (
+        {(searchField.length > 0) && (
           <i
             className="fa fa-refresh fa-spin"
             aria-hidden="true"

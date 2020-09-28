@@ -1,0 +1,13 @@
+i{
+    cursor: pointer;
+    float: left;
+    padding: 20px;
+}
+header{
+    padding: 20px;
+    text-align: center;
+    font-size: xx-large
+}
+.heading{
+    display: inline;
+}
