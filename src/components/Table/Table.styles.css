@@ -1,32 +1,29 @@
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td,
-  th {
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #ddd;
-  }
-  
-  
-  /* The scrollable part */
-  
-  .scrollable {
-    height: 350px;
-    overflow-y: scroll;
-    border-bottom: 1px solid #ddd;
-    margin: 50px 100px;
-  }
-  
-  th {
-    position: sticky;
-    background-color: white;
-    z-index: 2;
-    top: 0;
-  }
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+.scrollable {
+  height: 300px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #ddd;
+  margin: 50px 100px;
+}
+
+th {
+  position: sticky;
+  background-color: white;
+  z-index: 2;
+  top: 0;
+}

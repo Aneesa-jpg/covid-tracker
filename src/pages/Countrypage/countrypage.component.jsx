@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import LineChart from "../../components/LineChart/LineChart.component";
+
 import Table from "../../components/Table/Table.component";
 import "./countrypage.style.css";
 
@@ -14,7 +16,7 @@ const CountryPage = () => {
       .then(
         (result) => {
           setData(result.reverse());
-          console.log(result)
+          console.log(result);
 
           if (result.length === 0) {
             console.log("no data");
@@ -39,16 +41,8 @@ const CountryPage = () => {
           <b>{country} Status page</b>
         </header>
       </div>
-
-      {/* <div>
-        {data.map((dat) => (
-          <p>{dat.Active}</p>
-        ))}
-      </div> */}
-
       {country ? <Table data={data} /> : <h1>No Data for {countryId} </h1>}
-
-    
+      <LineChart data={data.slice(0, 10)} />
     </div>
   );
 };
