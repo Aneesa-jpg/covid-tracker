@@ -1,13 +1,17 @@
-i{
-    cursor: pointer;
-    float: left;
-    padding: 20px;
+i {
+  cursor: pointer;
+  float: left;
+  padding: 20px;
 }
-header{
-    padding: 20px;
-    text-align: center;
-    font-size: xx-large
+header {
+  padding: 20px;
+  text-align: center;
+  font-size: xx-large;
 }
-.heading{
-    display: inline;
+.heading {
+  display: inline;
+}
+
+.charts{
+margin: auto;
 }

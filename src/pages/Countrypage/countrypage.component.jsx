@@ -30,6 +30,19 @@ const CountryPage = () => {
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const chartData = data.slice(0, 10);
+  const label = chartData.map((date) =>
+    new Date(date.Date).toLocaleDateString()
+  );
+  console.log(label);
+  const confirmed = chartData.map((confirmed) => confirmed.Confirmed);
+  console.log(confirmed);
+  const active = chartData.map((confirmed) => confirmed.Active);
+  console.log(active);
+  const dead = chartData.map((confirmed) => confirmed.Deaths);
+  console.log(dead);
+  const recovered = chartData.map((confirmed) => confirmed.Recovered);
+
   return (
     <div>
       <div className="heading">
@@ -42,7 +55,36 @@ const CountryPage = () => {
         </header>
       </div>
       {country ? <Table data={data} /> : <h1>No Data for {countryId} </h1>}
-      <LineChart data={data.slice(0, 10)} />
+      <div className="charts">
+        <LineChart
+          label={label}
+          data={confirmed}
+          color={"Blue"}
+          desc={"Confirmed"}
+          id={"Confirmed"}
+        />
+        <LineChart
+          label={label}
+          data={active}
+          color={"Orange"}
+          desc={"Active"}
+          id={"Active"}
+        />
+        <LineChart
+          label={label}
+          data={dead}
+          color={"Red"}
+          desc={"Deaths"}
+          id={"Deaths"}
+        />
+        <LineChart
+          label={label}
+          data={recovered}
+          color={"Green"}
+          desc={"Recovered"}
+          id={"recovered"}
+        />
+      </div>
     </div>
   );
 };

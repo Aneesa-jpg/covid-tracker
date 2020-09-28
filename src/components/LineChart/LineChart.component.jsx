@@ -1,24 +1,18 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
 import "./LineChart.styles.css";
-const LineChart = ({ data }) => {
-  console.log(data);
-
-  const label = data.map((date) => new Date(date.Date).toLocaleDateString());
-  console.log(label);
-  const confirmed = data.map((confirmed) => confirmed.Confirmed);
-  console.log(confirmed);
+const LineChart = ({ label, data, color, desc, id }) => {
   useEffect(() => {
-    const ctx = document.getElementById("myChart");
+    const ctx = document.getElementById(`${id}`);
     new Chart(ctx, {
       type: "line",
       data: {
         labels: label,
         datasets: [
           {
-            label: "# of Confirmed in last ten days",
-            data: confirmed,
-
+            label: `# of ${desc} in last ten days`,
+            data: data,
+            backgroundColor: color,
           },
         ],
       },
@@ -26,7 +20,7 @@ const LineChart = ({ data }) => {
   });
   return (
     <div className="confirmed">
-      <canvas id="myChart" width="250" height="250" />
+      <canvas id={id} width="250" height="250" />
     </div>
   );
 };
